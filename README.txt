@@ -1,8 +1,8 @@
-La Dulce Monarca website files
+La Dulce Monarca website
 
-Upload these files to the root of your GitHub repository:
+Files to upload to GitHub:
 - index.html
 - styles.css
-- assets folder
+- assets/ folder
 
-After committing changes, Vercel should redeploy automatically.
+After uploading and committing changes, Vercel should redeploy automatically.
