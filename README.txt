@@ -6,3 +6,6 @@ Files to upload to GitHub:
 - assets/ folder
 
 After uploading and committing changes, Vercel should redeploy automatically.
+
+
+Google Analytics installed: G-M5HRLTEFHL
