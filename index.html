@@ -57,7 +57,7 @@
         <div>
           <div class="section-label">About Me</div>
           <h2>Meet the baker behind La Dulce Monarca.</h2>
-          <p>Hi, I'm Valerie V, the baker and creative heart behind La Dulce Monarca. I create custom cakes and handcrafted desserts designed to make every celebration extra special. From elegant mini wedding cakes and personalized cakes to fun treats, dessert tables, and sweet carts, I love bringing beautiful and delicious ideas to life.</p>
+          <p>Hi, I'm Valerie, the baker and creative heart behind La Dulce Monarca. I create custom cakes and handcrafted desserts designed to make every celebration extra special. From elegant mini wedding cakes and personalized cakes to fun treats, dessert tables, and sweet carts, I love bringing beautiful and delicious ideas to life.</p>
           <p>What started as a creative outlet has grown into something I truly enjoy, and each dessert is made with care, attention to detail, and a personal touch. Whether you’re celebrating a milestone or simply treating yourself, I’m here to make your sweetest moments unforgettable.</p>
           <div class="about-photo-card">
             <img src="assets/valerie.jpg" alt="Valerie V at La Dulce Monarca dessert station" class="fill-image" />
@@ -160,17 +160,18 @@
           </div>
         </div>
         <div class="form-card">
-          <div class="form-title">Inquiry form</div>
-          <form class="inquiry-form" action="mailto:ladulcemonarca@gmail.com" method="post" enctype="text/plain">
-            <input type="text" name="name" placeholder="Your name" />
-            <input type="text" name="contact" placeholder="Email or phone" />
-            <input type="text" name="date" placeholder="Event date" />
-            <textarea name="details" placeholder="Tell us what you’re looking for"></textarea>
-            <button type="submit" class="btn btn-dark full">Send Inquiry</button>
-          </form>
-          <p class="small-note">This button opens your email app so inquiries can be sent directly.</p>
-        </div>
-      </div>
+  <div class="form-title">Inquiry form</div>
+
+  <div class="centered-actions">
+    <button class="btn btn-dark" id="openInquiry">
+      Request a Quote
+    </button>
+  </div>
+
+  <p class="small-note">
+    Click the button to fill out our custom inquiry form.
+  </p>
+  </div>
     </section>
   </main>
 
@@ -192,7 +193,12 @@
       <iframe src="https://tally.so/r/BzkPAe?transparentBackground=1" title="Leave a review"></iframe>
     </div>
   </div>
-
+<div class="modal" id="inquiryModal" aria-hidden="true">
+  <div class="modal-backdrop" id="closeInquiry"></div>
+  <div class="modal-content">
+    <button class="modal-close" id="closeInquiryBtn" aria-label="Close">Close</button>
+    <iframe src="https://tally.so/r/dW2MYq?transparentBackground=1" title="Inquiry form"></iframe>
+  </div>
   <script>
     const modal = document.getElementById('reviewModal');
     const openBtn = document.getElementById('openReview');
@@ -204,5 +210,25 @@
     closeBtn.addEventListener('click', closeModal);
     closeBackdrop.addEventListener('click', closeModal);
   </script>
+  <script>
+  const inquiryModal = document.getElementById('inquiryModal');
+  const openInquiry = document.getElementById('openInquiry');
+  const closeInquiryBtn = document.getElementById('closeInquiryBtn');
+  const closeInquiryBackdrop = document.getElementById('closeInquiry');
+
+  function openInquiryModal() {
+    inquiryModal.classList.add('open');
+    inquiryModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeInquiryModal() {
+    inquiryModal.classList.remove('open');
+    inquiryModal.setAttribute('aria-hidden', 'true');
+  }
+
+  openInquiry.addEventListener('click', openInquiryModal);
+  closeInquiryBtn.addEventListener('click', closeInquiryModal);
+  closeInquiryBackdrop.addEventListener('click', closeInquiryModal);
+</script>
 </body>
 </html>
