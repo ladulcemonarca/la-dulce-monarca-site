@@ -1,507 +1,207 @@
-import { useEffect, useState } from 'react';
-
-export default function LaDulceMonarcaWebsite() {
-  const [isReviewOpen, setIsReviewOpen] = useState(false);
-  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
-
-  useEffect(() => {
-    const script1 = document.createElement('script');
-    script1.async = true;
-    script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-M5HRLTEFHL';
-    document.head.appendChild(script1);
-
-    const script2 = document.createElement('script');
-    script2.innerHTML = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-M5HRLTEFHL');
-    `;
-    document.head.appendChild(script2);
-
-    return () => {
-      document.head.removeChild(script1);
-      document.head.removeChild(script2);
-    };
-  }, []);
-  const infoCard =
-    'rounded-[2rem] bg-white p-6 shadow-lg ring-1 ring-stone-200';
-
-  const featuredTreats = [
-    {
-      title: 'Personalized Cakes',
-      description:
-        'Custom-designed cakes tailored to your theme, colors, and occasion for unforgettable celebrations.',
-      image: '/mnt/data/IMG_4117.jpg',
-      alt: 'La Dulce Monarca personalized cakes collection',
-    },
-    {
-      title: 'Event Catering',
-      description:
-        'A polished, elegant setup that showcases your event catering beautifully.',
-      image: '/mnt/data/IMG_3614.jpg',
-      alt: 'La Dulce Monarca event catering dessert cup',
-    },
-  ];
-
-  const highlights = [
-    'Custom orders for parties, gifts, and celebrations',
-    'Modern presentation with a handmade touch',
-    'Flexible pickup and local inquiry-based ordering',
-    'Perfect for birthdays, showers, holidays, and corporate treats',
-  ];
-
-  const gallery = [
-    {
-      title: 'Personalized cakes',
-      image: '/mnt/data/IMG_4117.jpg',
-      alt: 'La Dulce Monarca personalized cakes display',
-    },
-    {
-      title: 'Jurassic themed cake',
-      image: '/mnt/data/IMG_2951.JPG',
-      alt: 'Jurassic Park themed custom cake',
-    },
-    {
-      title: 'Winnie the Pooh heart cake',
-      image: '/mnt/data/IMG_1945.jpg',
-      alt: 'Winnie the Pooh themed heart cake',
-    },
-    {
-      title: 'Birthday crown cake',
-      image: '/mnt/data/IMG_3458.jpg',
-      alt: 'Elegant birthday crown heart cake',
-    },
-    {
-      title: 'Raspberry celebration cake',
-      image: '/mnt/data/IMG_3885 2.jpg',
-      alt: 'Raspberry topped celebration cake',
-    },
-    {
-      title: 'Spotify heart cake',
-      image: '/mnt/data/IMG_4096.jpg',
-      alt: 'Spotify inspired red heart cake',
-    },
-    {
-      title: 'Dessert cups',
-      image: '/mnt/data/IMG_9141.jpg',
-      alt: 'Strawberry dessert cups catering display',
-    },
-    {
-      title: 'Dessert table styling',
-      image: '/mnt/data/IMG_3017.JPG',
-      alt: 'La Dulce Monarca dessert table styling',
-    },
-  ];
-
-  
-  const instagramPosts = [
-    {
-      title: 'Latest custom cakes',
-      image: '/mnt/data/IMG_4117.jpg',
-    },
-    {
-      title: 'Dessert cart styling',
-      image: '/mnt/data/IMG_3584.jpg',
-    },
-    {
-      title: 'Dessert table setups',
-      image: '/mnt/data/IMG_3017.JPG',
-    },
-    {
-      title: 'Event catering favorites',
-      image: '/mnt/data/IMG_3614.jpg',
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: 'Lorena H.',
-      quote:
-        'Absolutely loved the cake. It was moist, full of flavor, and beautifully detailed. Communication was amazing, quick, and made the whole process smooth and stress-free. I would definitely order again.',
-    },
-    {
-      name: 'Jasmin B.',
-      quote:
-        'The cakes were even better than I expected. Communication was straightforward and easy, and everything came out perfect. The flavor was just right, and the whole experience made me a loyal customer.',
-    },
-    {
-      name: 'Ashley A.',
-      quote:
-        'Every part of ordering with La Dulce Monarca was smooth and easy. Great communication, beautiful design ideas, and a cake that looked amazing and tasted just as incredible. I look forward to ordering again.',
-    },
-  ];
-
-  return (
-    <>
-      <div className="min-h-screen bg-stone-50 text-stone-900 selection:bg-amber-200/60">
-        <header className="sticky top-0 z-30 border-b border-stone-200/80 bg-white/90 backdrop-blur">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-4">
-              <img
-                src="/mnt/data/La dulce monarcha logo new .png"
-                alt="La Dulce Monarca Logo"
-                className="h-14 w-14 rounded-full object-cover"
-              />
-              <div>
-                <p className="text-lg font-semibold tracking-wide text-stone-900">
-                  La Dulce Monarca
-                </p>
-                <p className="text-sm text-stone-500">
-                  Custom cakes & dessert catering
-                </p>
-              </div>
-            </div>
-
-            <nav className="hidden gap-6 text-sm md:flex">
-              <a href="#about" className="transition hover:opacity-70">
-                About
-              </a>
-              <a href="#menu" className="transition hover:opacity-70">
-                Services
-              </a>
-              <a href="#gallery" className="transition hover:opacity-70">
-                Gallery
-              </a>
-              <a href="#contact" className="transition hover:opacity-70">
-                Contact
-              </a>
-            </nav>
-          </div>
-        </header>
-
-        <main>
-          <section className="relative overflow-hidden">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.16),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(217,119,6,0.12),transparent_30%),linear-gradient(180deg,rgba(255,251,245,0.95),rgba(246,239,230,0.98))]" />
-            <div className="absolute -left-24 top-16 h-72 w-72 rounded-full bg-white/40 blur-3xl" />
-            <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-amber-100/50 blur-3xl" />
-
-            <div className="relative mx-auto flex max-w-4xl justify-center px-4 py-20 text-center sm:px-6 lg:px-8 lg:py-28">
-              <div className="flex flex-col items-center justify-center">
-                <p className="mb-4 inline-flex w-fit rounded-full border border-stone-300/70 bg-white/90 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.28em] text-amber-800 shadow-sm mx-auto">
-                  Elegant cakes for meaningful moments
-                </p>
-                <h1 className="max-w-3xl font-serif text-4xl leading-tight text-stone-900 sm:text-5xl lg:text-6xl mx-auto">
-                  Custom cakes that look as special as your celebration feels.
-                </h1>
-                <p className="mt-6 max-w-2xl text-base leading-8 text-stone-700 sm:text-lg mx-auto">
-                  La Dulce Monarca creates beautiful dessert experiences with personalized cakes and event catering for showers, birthdays, holidays, and private events.
-                </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <a
-                    href="#contact"
-                    className="rounded-full bg-stone-900 px-6 py-3 text-center text-sm font-medium text-white shadow-lg transition hover:-translate-y-0.5"
-                  >
-                    Request a Quote
-                  </a>
-                  <a
-                    href="#gallery"
-                    className="rounded-full border border-stone-300 bg-white/90 px-6 py-3 text-center text-sm font-medium text-stone-900 shadow-sm transition hover:-translate-y-0.5"
-                  >
-                    View Our Work
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="about" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
-            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-stone-500">
-                  About Me
-                </p>
-                <h2 className="mt-3 max-w-2xl font-serif text-3xl text-stone-900 sm:text-4xl">
-                  Meet the baker behind La Dulce Monarca.
-                </h2>
-                <p className="mt-5 max-w-2xl text-base leading-7 text-stone-600">
-                  Hi, I'm Valerie V, the baker and creative heart behind La Dulce Monarca. I create custom cakes and handcrafted desserts designed to make every celebration extra special. From elegant mini wedding cakes and personalized cakes to fun treats, dessert tables, and sweet carts, I love bringing beautiful and delicious ideas to life.
-                </p>
-                <p className="mt-5 max-w-2xl text-base leading-7 text-stone-600">
-                  What started as a creative outlet has grown into something I truly enjoy, and each dessert is made with care, attention to detail, and a personal touch. Whether you’re celebrating a milestone or simply treating yourself, I’m here to make your sweetest moments unforgettable.
-                </p>
-                <div className="mt-8 max-w-2xl overflow-hidden rounded-[2rem] border border-stone-200 bg-white p-4 shadow-[0_18px_50px_rgba(120,53,15,0.08)]">
-                  <img
-                    src="/mnt/data/IMG_3924.JPG"
-                    alt="Valerie V at La Dulce Monarca dessert station"
-                    className="h-full w-full rounded-[1.5rem] object-cover object-center"
-                  />
-                </div>
-              </div>
-
-              <div className={infoCard}>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-stone-500">
-                  Why clients choose us
-                </p>
-                <div className="mt-5 space-y-4">
-                  {highlights.map((item) => (
-                    <div key={item} className="flex gap-3 rounded-[1.5rem] bg-[#f7efe6] p-4">
-                      <div className="mt-1 h-2.5 w-2.5 rounded-full bg-amber-800" />
-                      <p className="text-sm leading-6 text-stone-700">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="menu" className="border-y border-stone-200 bg-[#fbf6f0]">
-            <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-              <div className="max-w-2xl">
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-stone-500">
-                  Services
-                </p>
-                <h2 className="mt-3 font-serif text-3xl text-stone-900 sm:text-4xl">
-                  Beautiful cakes and dessert styling for gifting, hosting, and celebrating.
-                </h2>
-              </div>
-
-              <div className="mt-10 grid gap-6 md:grid-cols-2">
-                {featuredTreats.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-[2rem] border border-stone-200 bg-stone-50 p-6 shadow-[0_18px_50px_rgba(120,53,15,0.08)]"
-                  >
-                    <div className="mb-5 h-52 overflow-hidden rounded-[1.5rem] bg-[linear-gradient(135deg,#e8d3bb,#f5ebdf)]">
-                      <img
-                        src={item.image}
-                        alt={item.alt}
-                        className="h-full w-full object-cover object-center"
-                      />
-                    </div>
-                    <h3 className="font-serif text-2xl text-stone-900">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-stone-600">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section id="gallery" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-stone-500">
-                  Gallery
-                </p>
-                <h2 className="mt-3 font-serif text-3xl text-stone-900 sm:text-4xl">
-                  A collage of our cakes, dessert tables, and sweetest creations.
-                </h2>
-              </div>
-              <p className="max-w-xl text-sm leading-6 text-stone-600">
-                A curated look at recent cakes, catering displays, and event styling from La Dulce Monarca.
-              </p>
-            </div>
-
-            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 auto-rows-[260px]">
-              {gallery.map((item, index) => (
-                <div
-                  key={item.title}
-                  className={`overflow-hidden rounded-[2rem] border border-stone-200 bg-white p-3 shadow-[0_18px_50px_rgba(120,53,15,0.08)] ${
-                    index % 5 === 0 ? 'sm:row-span-2' : ''
-                  } ${index % 7 === 0 ? 'lg:col-span-2' : ''}`}
-                >
-                  <div className="h-full overflow-hidden rounded-[1.5rem] bg-stone-100">
-                    <img
-                      src={item.image}
-                      alt={item.alt}
-                      className="h-full w-full object-cover object-center"
-                      style={{ objectPosition: 'center center' }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          
-          <section className="border-y border-stone-200 bg-white">
-            <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-stone-500">
-                    Instagram
-                  </p>
-                  <h2 className="mt-3 font-serif text-3xl text-stone-900 sm:text-4xl">
-                    Follow our latest creations on Instagram.
-                  </h2>
-                </div>
-                <a
-                  href="https://instagram.com/ladulcemonarca"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-stone-300 bg-white px-5 py-3 text-sm font-medium text-stone-900 shadow-sm transition hover:-translate-y-0.5"
-                >
-                  @ladulcemonarca
-                </a>
-              </div>
-
-              <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {instagramPosts.map((post) => (
-                  <a
-                    key={post.title}
-                    href="https://instagram.com/ladulcemonarca"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-[2rem] border border-stone-200 bg-stone-50 p-4 shadow-[0_18px_50px_rgba(120,53,15,0.08)] transition hover:-translate-y-1"
-                  >
-                    <div className="h-56 overflow-hidden rounded-[1.5rem] bg-[linear-gradient(180deg,#efe0cf,#f8f1e7)]">
-                      <img
-                        src={post.image}
-                        alt={post.title}
-                        className="h-full w-full object-cover object-center"
-                      />
-                    </div>
-                    <p className="mt-4 text-sm font-medium text-stone-900">{post.title}</p>
-                  </a>
-                ))}
-              </div>
-
-              <p className="mt-6 text-sm text-stone-500">
-                This section can be connected to your real Instagram feed once the site is published.
-              </p>
-            </div>
-          </section>
-
-          <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-stone-500">
-                Kind words
-              </p>
-              <h2 className="mt-3 font-serif text-3xl text-stone-900 sm:text-4xl">
-                What clients are saying about La Dulce Monarca
-              </h2>
-            </div>
-
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {testimonials.map((item) => (
-                <div
-                  key={item.name}
-                  className="rounded-[2rem] border border-stone-200 bg-white p-6 shadow-[0_18px_50px_rgba(120,53,15,0.08)]"
-                >
-                  <p className="text-sm leading-7 text-stone-600">“{item.quote}”</p>
-                  <p className="mt-5 text-sm font-semibold text-stone-900">{item.name}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-10 flex justify-center">
-              <button
-                type="button"
-                onClick={() => setIsReviewOpen(true)}
-                className="rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-white shadow-lg transition hover:-translate-y-0.5"
-              >
-                Leave a Review
-              </button>
-            </div>
-          </section>
-
-          <section id="contact" className="border-t border-stone-200 bg-[#fbf6f0]">
-            <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-stone-500">
-                  Contact
-                </p>
-                <h2 className="mt-3 font-serif text-3xl text-stone-900 sm:text-4xl">
-                  Ready to place an order or ask about your event?
-                </h2>
-                <p className="mt-5 max-w-xl text-base leading-7 text-stone-600">
-                  Reach out by Instagram or email and share your event date, theme, and the style you have in mind.
-                </p>
-
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  <a
-                    href="https://instagram.com/ladulcemonarca"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-[1.5rem] bg-white p-5 ring-1 ring-stone-200 transition hover:-translate-y-0.5"
-                  >
-                    <p className="text-sm font-medium text-stone-900">Instagram</p>
-                    <p className="mt-2 text-sm text-stone-600">@ladulcemonarca</p>
-                  </a>
-                  <a
-                    href="mailto:ladulcemonarca@gmail.com"
-                    className="rounded-[1.5rem] bg-white p-5 ring-1 ring-stone-200 transition hover:-translate-y-0.5"
-                  >
-                    <p className="text-sm font-medium text-stone-900">Email</p>
-                    <p className="mt-2 text-sm text-stone-600">
-                      ladulcemonarca@gmail.com
-                    </p>
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center">
-                <button
-                  type="button"
-                  onClick={() => setIsInquiryOpen(true)}
-                  className="rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-white shadow-lg transition hover:-translate-y-0.5"
-                >
-                  Open Inquiry Form
-                </button>
-              </div>
-            </div>
-          </section>
-        </main>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Dulce Monarca</title>
+  <meta name="description" content="Custom cakes and dessert catering for showers, birthdays, holidays, and private events." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5HRLTEFHL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-M5HRLTEFHL');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/logo.png" alt="La Dulce Monarca logo" class="logo" />
+        <div>
+          <div class="brand-name">La Dulce Monarca</div>
+          <div class="brand-subtitle">Custom cakes &amp; dessert catering</div>
+        </div>
       </div>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#menu">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-      {isReviewOpen ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="relative h-[85vh] w-full max-w-4xl overflow-hidden rounded-[2rem] bg-white shadow-2xl">
-            <button
-              type="button"
-              onClick={() => setIsReviewOpen(false)}
-              className="absolute right-4 top-4 z-10 rounded-full bg-white px-3 py-1 text-sm font-medium text-stone-900 shadow-md"
-            >
-              Close
-            </button>
-            <iframe
-              src="https://tally.so/r/BzkPAe?transparentBackground=1"
-              title="Leave a review"
-              className="h-full w-full border-0"
-            />
+  <main>
+    <section class="hero">
+      <div class="hero-glow hero-glow-left"></div>
+      <div class="hero-glow hero-glow-right"></div>
+      <div class="container hero-inner">
+        <div class="eyebrow">Elegant cakes for meaningful moments</div>
+        <h1>Custom cakes that look as special as your celebration feels.</h1>
+        <p class="hero-copy">La Dulce Monarca creates beautiful dessert experiences with personalized cakes and event catering for showers, birthdays, holidays, and private events.</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark" href="#contact">Request a Quote</a>
+          <a class="btn btn-light" href="#gallery">View Our Work</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div>
+          <div class="section-label">About Me</div>
+          <h2>Meet the baker behind La Dulce Monarca.</h2>
+          <p>Hi, I'm Valerie V, the baker and creative heart behind La Dulce Monarca. I create custom cakes and handcrafted desserts designed to make every celebration extra special. From elegant mini wedding cakes and personalized cakes to fun treats, dessert tables, and sweet carts, I love bringing beautiful and delicious ideas to life.</p>
+          <p>What started as a creative outlet has grown into something I truly enjoy, and each dessert is made with care, attention to detail, and a personal touch. Whether you’re celebrating a milestone or simply treating yourself, I’m here to make your sweetest moments unforgettable.</p>
+          <div class="about-photo-card">
+            <img src="assets/valerie.jpg" alt="Valerie V at La Dulce Monarca dessert station" class="fill-image" />
           </div>
         </div>
-      ) : null}
-
-      {isInquiryOpen ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-          <div className="relative h-[85vh] w-full max-w-4xl overflow-hidden rounded-[2rem] bg-white shadow-2xl">
-            <button
-              type="button"
-              onClick={() => setIsInquiryOpen(false)}
-              className="absolute right-4 top-4 z-10 rounded-full bg-white px-3 py-1 text-sm font-medium text-stone-900 shadow-md"
-            >
-              Close
-            </button>
-            <iframe
-              src="https://tally.so/r/dW2MYq?transparentBackground=1"
-              title="Inquiry form"
-              className="h-full w-full border-0"
-            />
+        <div class="info-card">
+          <div class="section-label">Why clients choose us</div>
+          <div class="highlight-list">
+            <div class="highlight-item"><span></span>Custom orders for parties, gifts, and celebrations</div>
+            <div class="highlight-item"><span></span>Modern presentation with a handmade touch</div>
+            <div class="highlight-item"><span></span>Flexible pickup and local inquiry-based ordering</div>
+            <div class="highlight-item"><span></span>Perfect for birthdays, showers, holidays, and corporate treats</div>
           </div>
         </div>
-      ) : null}
+      </div>
+    </section>
 
-      <footer className="border-t border-stone-200 bg-stone-50">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-8 text-sm text-stone-900/70 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <p>© 2026 La Dulce Monarca. All rights reserved.</p>
-          <div className="flex gap-4">
-            <a href="#about" className="hover:text-stone-900">
-              About
-            </a>
-            <a href="#menu" className="hover:text-stone-900">
-              Services
-            </a>
-            <a href="#contact" className="hover:text-stone-900">
-              Contact
-            </a>
+    <section id="menu" class="section section-soft">
+      <div class="container">
+        <div class="section-label">Services</div>
+        <h2>Beautiful cakes and dessert styling for gifting, hosting, and celebrating.</h2>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-image"><img src="assets/personalized-cakes.jpg" alt="La Dulce Monarca personalized cakes collection" class="fill-image" /></div>
+            <h3>Personalized Cakes</h3>
+            <p>Custom-designed cakes tailored to your theme, colors, and occasion for unforgettable celebrations.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-image"><img src="assets/event-catering.jpg" alt="La Dulce Monarca event catering dessert cup" class="fill-image" /></div>
+            <h3>Event Catering</h3>
+            <p>A polished, elegant setup that showcases your event catering beautifully.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <div class="container">
+        <div class="gallery-head">
+          <div>
+            <div class="section-label">Gallery</div>
+            <h2>A collage of our cakes, dessert tables, and sweetest creations.</h2>
+          </div>
+          <p>A curated look at recent cakes, catering displays, and event styling from La Dulce Monarca.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-card tall wide"><img src="assets/personalized-cakes.jpg" alt="Personalized cakes" class="fill-image" /></div>
+          <div class="gallery-card"><img src="assets/jurassic-cake.jpg" alt="Jurassic themed cake" class="fill-image" /></div>
+          <div class="gallery-card"><img src="assets/pooh-cake.jpg" alt="Winnie the Pooh heart cake" class="fill-image" /></div>
+          <div class="gallery-card"><img src="assets/crown-cake.jpg" alt="Birthday crown cake" class="fill-image" /></div>
+          <div class="gallery-card"><img src="assets/raspberry-cake.jpg" alt="Raspberry celebration cake" class="fill-image" /></div>
+          <div class="gallery-card tall"><img src="assets/spotify-cake.jpg" alt="Spotify heart cake" class="fill-image" /></div>
+          <div class="gallery-card wide"><img src="assets/dessert-cups.jpg" alt="Dessert cups" class="fill-image" /></div>
+          <div class="gallery-card"><img src="assets/dessert-table.jpg" alt="Dessert table styling" class="fill-image" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-line">
+      <div class="container">
+        <div class="gallery-head">
+          <div>
+            <div class="section-label">Instagram</div>
+            <h2>Follow our latest creations on Instagram.</h2>
+          </div>
+          <a class="btn btn-light" href="https://instagram.com/ladulcemonarca" target="_blank" rel="noopener noreferrer">@ladulcemonarca</a>
+        </div>
+        <div class="instagram-grid">
+          <a class="insta-card" href="https://instagram.com/ladulcemonarca" target="_blank" rel="noopener noreferrer"><div class="insta-image"><img src="assets/personalized-cakes.jpg" alt="Latest custom cakes" class="fill-image" /></div><div class="insta-title">Latest custom cakes</div></a>
+          <a class="insta-card" href="https://instagram.com/ladulcemonarca" target="_blank" rel="noopener noreferrer"><div class="insta-image"><img src="assets/dessert-cart.jpg" alt="Dessert cart styling" class="fill-image" /></div><div class="insta-title">Dessert cart styling</div></a>
+          <a class="insta-card" href="https://instagram.com/ladulcemonarca" target="_blank" rel="noopener noreferrer"><div class="insta-image"><img src="assets/dessert-table.jpg" alt="Dessert table setups" class="fill-image" /></div><div class="insta-title">Dessert table setups</div></a>
+          <a class="insta-card" href="https://instagram.com/ladulcemonarca" target="_blank" rel="noopener noreferrer"><div class="insta-image"><img src="assets/event-catering.jpg" alt="Event catering favorites" class="fill-image" /></div><div class="insta-title">Event catering favorites</div></a>
+        </div>
+        <p class="small-note">This section can be connected to your real Instagram feed once the site is published.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-label">Kind words</div>
+        <h2>What clients are saying about La Dulce Monarca</h2>
+        <div class="review-grid">
+          <article class="review-card"><p>“Absolutely loved the cake. It was moist, full of flavor, and beautifully detailed. Communication was amazing, quick, and made the whole process smooth and stress-free. I would definitely order again.”</p><div class="review-name">Lorena H.</div></article>
+          <article class="review-card"><p>“The cakes were even better than I expected. Communication was straightforward and easy, and everything came out perfect. The flavor was just right, and the whole experience made me a loyal customer.”</p><div class="review-name">Jasmin B.</div></article>
+          <article class="review-card"><p>“Every part of ordering with La Dulce Monarca was smooth and easy. Great communication, beautiful design ideas, and a cake that looked amazing and tasted just as incredible. I look forward to ordering again.”</p><div class="review-name">Ashley A.</div></article>
+        </div>
+        <div class="centered-actions"><button class="btn btn-dark" id="openReview">Leave a Review</button></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-soft section-top-line">
+      <div class="container contact-grid">
+        <div>
+          <div class="section-label">Contact</div>
+          <h2>Ready to place an order or ask about your event?</h2>
+          <p>Reach out by Instagram or email and share your event date, theme, and the style you have in mind.</p>
+          <div class="contact-links">
+            <a class="contact-card" href="https://instagram.com/ladulcemonarca" target="_blank" rel="noopener noreferrer"><strong>Instagram</strong><span>@ladulcemonarca</span></a>
+            <a class="contact-card" href="mailto:ladulcemonarca@gmail.com"><strong>Email</strong><span>ladulcemonarca@gmail.com</span></a>
           </div>
         </div>
-      </footer>
-    </>
-  );
-}
+        <div class="form-card">
+          <div class="form-title">Inquiry form</div>
+          <form class="inquiry-form" action="mailto:ladulcemonarca@gmail.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Your name" />
+            <input type="text" name="contact" placeholder="Email or phone" />
+            <input type="text" name="date" placeholder="Event date" />
+            <textarea name="details" placeholder="Tell us what you’re looking for"></textarea>
+            <button type="submit" class="btn btn-dark full">Send Inquiry</button>
+          </form>
+          <p class="small-note">This button opens your email app so inquiries can be sent directly.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 La Dulce Monarca. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#menu">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="reviewModal" aria-hidden="true">
+    <div class="modal-backdrop" id="closeReview"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="closeReviewBtn" aria-label="Close">Close</button>
+      <iframe src="https://tally.so/r/BzkPAe?transparentBackground=1" title="Leave a review"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('reviewModal');
+    const openBtn = document.getElementById('openReview');
+    const closeBtn = document.getElementById('closeReviewBtn');
+    const closeBackdrop = document.getElementById('closeReview');
+    function openModal(){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); }
+    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    closeBackdrop.addEventListener('click', closeModal);
+  </script>
+</body>
+</html>
