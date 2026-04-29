@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
-  <script async src="https://tally.so/widgets/embed.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5HRLTEFHL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -46,7 +45,7 @@
         <h1>Custom cakes that look as special as your celebration feels.</h1>
         <p class="hero-copy">La Dulce Monarca creates beautiful dessert experiences with personalized cakes and event catering for showers, birthdays, holidays, and private events.</p>
         <div class="hero-actions">
-          <button class="btn btn-dark" type="button" data-tally-open="aQj7zv" data-tally-emoji-text="👋" data-tally-emoji-animation="wave">Request a Quote</button>
+          <button class="btn btn-dark" id="openInquiryHero" type="button">Request a Quote</button>
           <a class="btn btn-light" href="#gallery">View Our Work</a>
         </div>
       </div>
@@ -160,10 +159,10 @@
           </div>
         </div>
         <div class="form-card">
-          <div class="form-title">Request a Quote</div>
-          <p class="small-note">Tell us your event date, cake theme, and dessert needs. The form opens in a quick popup.</p>
+          <div class="form-title">Inquiry form</div>
+          <p class="small-note">Click below to fill out our custom inquiry form.</p>
           <div class="centered-actions">
-            <button class="btn btn-dark" type="button" data-tally-open="aQj7zv" data-tally-emoji-text="👋" data-tally-emoji-animation="wave">Request a Quote</button>
+            <button class="btn btn-dark" id="openInquiry" type="button">Request a Quote</button>
           </div>
         </div>
       </div>
@@ -188,7 +187,16 @@
       <iframe src="https://tally.so/r/BzkPAe?transparentBackground=1" title="Leave a review"></iframe>
     </div>
   </div>
-<script>
+
+  <div class="modal" id="inquiryModal" aria-hidden="true">
+    <div class="modal-backdrop" id="closeInquiry"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="closeInquiryBtn" aria-label="Close">Close</button>
+      <iframe src="https://tally.so/r/aQj7zv?transparentBackground=1" title="Inquiry form"></iframe>
+    </div>
+  </div>
+
+  <script>
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
@@ -205,6 +213,11 @@
     const closeReviewBtn = document.getElementById('closeReviewBtn');
     const closeReviewBackdrop = document.getElementById('closeReview');
 
+    const inquiryModal = document.getElementById('inquiryModal');
+    const openInquiryBtn = document.getElementById('openInquiry');
+    const openInquiryHeroBtn = document.getElementById('openInquiryHero');
+    const closeInquiryBtn = document.getElementById('closeInquiryBtn');
+    const closeInquiryBackdrop = document.getElementById('closeInquiry');
 
     function openModal(modal) {
       modal.classList.add('open');
@@ -220,6 +233,10 @@
     if (closeReviewBtn) closeReviewBtn.addEventListener('click', function () { closeModal(reviewModal); });
     if (closeReviewBackdrop) closeReviewBackdrop.addEventListener('click', function () { closeModal(reviewModal); });
 
+    if (openInquiryBtn) openInquiryBtn.addEventListener('click', function () { openModal(inquiryModal); });
+    if (openInquiryHeroBtn) openInquiryHeroBtn.addEventListener('click', function () { openModal(inquiryModal); });
+    if (closeInquiryBtn) closeInquiryBtn.addEventListener('click', function () { closeModal(inquiryModal); });
+    if (closeInquiryBackdrop) closeInquiryBackdrop.addEventListener('click', function () { closeModal(inquiryModal); });
   </script>
 </body>
 </html>
