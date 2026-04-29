@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <script async src="https://tally.so/widgets/embed.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5HRLTEFHL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -46,7 +46,7 @@
         <h1>Custom cakes that look as special as your celebration feels.</h1>
         <p class="hero-copy">La Dulce Monarca creates beautiful dessert experiences with personalized cakes and event catering for showers, birthdays, holidays, and private events.</p>
         <div class="hero-actions">
-          <a class="btn btn-dark" href="#contact">Request a Quote</a>
+          <button class="btn btn-dark" type="button" data-tally-open="aQj7zv" data-tally-emoji-text="👋" data-tally-emoji-animation="wave">Request a Quote</button>
           <a class="btn btn-light" href="#gallery">View Our Work</a>
         </div>
       </div>
@@ -57,7 +57,7 @@
         <div>
           <div class="section-label">About Me</div>
           <h2>Meet the baker behind La Dulce Monarca.</h2>
-          <p>Hi, I'm Valerie, the baker and creative heart behind La Dulce Monarca. I create custom cakes and handcrafted desserts designed to make every celebration extra special. From elegant mini wedding cakes and personalized cakes to fun treats, dessert tables, and sweet carts, I love bringing beautiful and delicious ideas to life.</p>
+          <p>Hi, I'm Valerie V, the baker and creative heart behind La Dulce Monarca. I create custom cakes and handcrafted desserts designed to make every celebration extra special. From elegant mini wedding cakes and personalized cakes to fun treats, dessert tables, and sweet carts, I love bringing beautiful and delicious ideas to life.</p>
           <p>What started as a creative outlet has grown into something I truly enjoy, and each dessert is made with care, attention to detail, and a personal touch. Whether you’re celebrating a milestone or simply treating yourself, I’m here to make your sweetest moments unforgettable.</p>
           <div class="about-photo-card">
             <img src="assets/valerie.jpg" alt="Valerie V at La Dulce Monarca dessert station" class="fill-image" />
@@ -131,7 +131,7 @@
           <a class="insta-card" href="https://instagram.com/ladulcemonarca" target="_blank" rel="noopener noreferrer"><div class="insta-image"><img src="assets/dessert-table.jpg" alt="Dessert table setups" class="fill-image" /></div><div class="insta-title">Dessert table setups</div></a>
           <a class="insta-card" href="https://instagram.com/ladulcemonarca" target="_blank" rel="noopener noreferrer"><div class="insta-image"><img src="assets/event-catering.jpg" alt="Event catering favorites" class="fill-image" /></div><div class="insta-title">Event catering favorites</div></a>
         </div>
-        <p class="small-note"</p>
+        <p class="small-note">This section can be connected to your real Instagram feed once the site is published.</p>
       </div>
     </section>
 
@@ -160,18 +160,13 @@
           </div>
         </div>
         <div class="form-card">
-  <div class="form-title">Inquiry form</div>
-
-  <div class="centered-actions">
-    <button class="btn btn-dark" id="openInquiry">
-      Request a Quote
-    </button>
-  </div>
-
-  <p class="small-note">
-    Click the button to fill out our custom inquiry form.
-  </p>
-  </div>
+          <div class="form-title">Request a Quote</div>
+          <p class="small-note">Tell us your event date, cake theme, and dessert needs. The form opens in a quick popup.</p>
+          <div class="centered-actions">
+            <button class="btn btn-dark" type="button" data-tally-open="aQj7zv" data-tally-emoji-text="👋" data-tally-emoji-animation="wave">Request a Quote</button>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -193,42 +188,38 @@
       <iframe src="https://tally.so/r/BzkPAe?transparentBackground=1" title="Leave a review"></iframe>
     </div>
   </div>
-<div class="modal" id="inquiryModal" aria-hidden="true">
-  <div class="modal-backdrop" id="closeInquiry"></div>
-  <div class="modal-content">
-    <button class="modal-close" id="closeInquiryBtn" aria-label="Close">Close</button>
-    <iframe src="https://tally.so/r/dW2MYq?transparentBackground=1" title="Inquiry form"></iframe>
-  </div>
-  <script>
-    const modal = document.getElementById('reviewModal');
-    const openBtn = document.getElementById('openReview');
-    const closeBtn = document.getElementById('closeReviewBtn');
-    const closeBackdrop = document.getElementById('closeReview');
-    function openModal(){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); }
-    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
-    openBtn.addEventListener('click', openModal);
-    closeBtn.addEventListener('click', closeModal);
-    closeBackdrop.addEventListener('click', closeModal);
+<script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    window.addEventListener('load', function () {
+      if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+      window.scrollTo(0, 0);
+    });
+
+    const reviewModal = document.getElementById('reviewModal');
+    const openReviewBtn = document.getElementById('openReview');
+    const closeReviewBtn = document.getElementById('closeReviewBtn');
+    const closeReviewBackdrop = document.getElementById('closeReview');
+
+
+    function openModal(modal) {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    if (openReviewBtn) openReviewBtn.addEventListener('click', function () { openModal(reviewModal); });
+    if (closeReviewBtn) closeReviewBtn.addEventListener('click', function () { closeModal(reviewModal); });
+    if (closeReviewBackdrop) closeReviewBackdrop.addEventListener('click', function () { closeModal(reviewModal); });
+
   </script>
-  <script>
-  const inquiryModal = document.getElementById('inquiryModal');
-  const openInquiry = document.getElementById('openInquiry');
-  const closeInquiryBtn = document.getElementById('closeInquiryBtn');
-  const closeInquiryBackdrop = document.getElementById('closeInquiry');
-
-  function openInquiryModal() {
-    inquiryModal.classList.add('open');
-    inquiryModal.setAttribute('aria-hidden', 'false');
-  }
-
-  function closeInquiryModal() {
-    inquiryModal.classList.remove('open');
-    inquiryModal.setAttribute('aria-hidden', 'true');
-  }
-
-  openInquiry.addEventListener('click', openInquiryModal);
-  closeInquiryBtn.addEventListener('click', closeInquiryModal);
-  closeInquiryBackdrop.addEventListener('click', closeInquiryModal);
-</script>
 </body>
 </html>
