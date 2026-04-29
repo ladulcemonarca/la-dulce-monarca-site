@@ -1,13 +1,14 @@
-La Dulce Monarca website update
+La Dulce Monarca - working safe website package
 
-Upload these files to the root of your GitHub repository:
+Upload these files to GitHub:
 - index.html
 - styles.css
 - README.txt
-- assets folder
+- assets/ folder
 
-This version includes:
-- Tally inquiry popup: https://tally.so/r/aQj7zv
-- Tally review popup: https://tally.so/r/BzkPAe
-- Google Analytics ID: G-M5HRLTEFHL
-- scroll-to-top on page load
+This version is a static HTML/CSS site.
+It does NOT include broken React canvas code.
+The Request a Quote buttons open your Tally inquiry form in a new tab:
+https://tally.so/r/aQj7zv
+
+The review popup remains embedded on the site.
